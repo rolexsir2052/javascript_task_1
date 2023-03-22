@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container{
+        background-color:rgb(209, 150, 47);
+        padding:20px;
+        text-align: center;
+      }
+      .container p{
+        padding:10px;
+        font-size: 20px;
+      }
+      #btn{
+        margin-left: 56px;
+        padding: 5px 20px;
+        border-radius: 5px;
+        border: none;
+      }
+      #btn:hover{
+        background-color: black;
+        box-shadow: 0px 0px 10px red;
+        color:white
+      }
+      #input{
+        margin-right: 20px;
+        border-radius: 5px;
+        border: none;
+        padding: 5px 10px;
+        
+      }
+      #input:hover{
+        background-color: black;
+        box-shadow: 0px 0px 10px red;
+        color:white
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Guess numbers between 1-100</h1>
+      <p id="output">Enter number below</p>
+      <input type="number" name="input" id="input"><button id="btn">Enter</button>
+    </div>
+    <script>
+      let output=document.querySelector("#output")
+      let btn=document.querySelector("#btn")
+      btn.addEventListener("click",()=>{
+        let input=document.querySelector("#input").value
+        let genarate=Math.floor(Math.random()*100)
+        console.log(genarate)
+        if (input === ""){
+          alert("please enter the number")
+
+        }
+        else if (input == genarate){
+          output.innerHTML=`you guessed number is right and your number is ${input}`
+      
+        }
+        else if(input <= genarate){
+          output.textContent=`you guessed number is low that number is ${input} and genarated number is ${genarate}`
+        }
+        else if(input >= genarate){
+          output.textContent=`you guessed number is high that number is ${input} and genarated number is ${genarate}`
+        }
+      })
+    </script>
+  </body>
+</html>
